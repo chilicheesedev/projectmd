@@ -137,6 +137,15 @@ Found a bug? Have an idea? Open an issue or PR.
 
 ---
 
+## Connect
+
+- 🌐 [Website](https://chilicheese.dev)
+- 🐦 [X (Twitter)](https://x.com/chilicheesedev)
+- 🦋 [Bluesky](https://bsky.app/profile/chilicheesedev.bsky.social)
+- 💻 [GitHub](https://github.com/chilicheesedev)
+
+---
+
 ## License
 
 MIT
