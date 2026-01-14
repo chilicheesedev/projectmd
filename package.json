@@ -1,0 +1,11 @@
+{
+  "name": "project-md",
+  "version": "0.1.0",
+  "description": "The missing context file for AI-assisted development",
+  "bin": {
+    "project-md": "./bin/cli.js"
+  },
+  "keywords": ["cli", "cursor", "ai", "context", "developer-tools"],
+  "author": "Dein Name",
+  "license": "MIT"
+}
