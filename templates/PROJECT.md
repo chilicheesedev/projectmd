@@ -1,138 +1,114 @@
 # Project: {name}
 
-> {one-line description}
+> {One-line description}
 
 ---
 
-## AI Context
+## 📍 Current Reality
 
-<!-- 
-This section helps AI assistants (Cursor, Claude, Copilot) understand your project.
-Keep this updated – it's the first thing AI reads.
--->
+> **This section is the truth. If it conflicts with anything else, this wins.**
 
-### Summary
-{What this project does in 2-3 sentences}
+| Field | Value |
+|-------|-------|
+| **Status** | 🟡 In Progress |
+| **Active Branch** | `main` |
+| **Active Directory** | `/src/` |
+| **Last Session** | {YYYY-MM-DD} |
+| **Next Step** | {What to do next} |
+| **Blocked By** | Nothing |
 
-### Tech Stack
-- **Language:** {e.g., TypeScript, Python, Rust, Go}
-- **Framework:** {e.g., Next.js, FastAPI, Actix, Gin}
-- **Database:** {e.g., Supabase, PostgreSQL, MongoDB, SQLite}
-- **Hosting:** {e.g., Vercel, Railway, Fly.io, Self-hosted}
+---
 
-### Key Files
-<!-- AI should prioritize these when answering questions about your project -->
-- `{main entry point}` – {description}
-- `{config file}` – {description}
-- `{important module}` – {description}
+## 🚫 Boundaries
 
-### Architecture Decisions
-<!-- Important context so AI gives consistent answers -->
-- {e.g., "Using Server Components by default"}
-- {e.g., "All API calls go through /api/ routes"}
-- {e.g., "Repository pattern for database access"}
+> **AI must respect these. No exceptions.**
+
+### Do Not Modify
+<!-- Folders/files AI should never touch -->
+- `{path}` – {reason}
 
 ### Do Not Suggest
-<!-- Prevents AI from suggesting things that won't work in this project -->
-- {e.g., "Do not suggest Prisma – we use Supabase client directly"}
-- {e.g., "Do not use CSS modules – Tailwind only"}
-- {e.g., "Do not suggest async/await – this is sync Python"}
+<!-- Technologies/patterns AI should not recommend -->
+- **{Technology}** – {reason why not}
 
 ---
 
-## Quick Start
+## ⚠️ Deviations from Original Plan
 
-### Prerequisites
-- {e.g., Node.js >= 18}
-- {e.g., Python 3.11+}
-- {e.g., Docker}
+> **We consciously changed direction. AI must respect these decisions.**
 
-### Install
-```bash
-{install command, e.g., npm install / pip install -r requirements.txt / cargo build}
-```
-
-### Run
-```bash
-{run command, e.g., npm run dev / python main.py / cargo run}
-```
-
-### Local URL
-- {e.g., http://localhost:3000}
-
-### Environment Variables
-<!-- From .env.example – what's needed to run this project -->
-| Variable | Description | Where to get it |
-|----------|-------------|-----------------|
-| `{VAR_NAME}` | {what it's for} | {where to find it} |
+| Date | Original Plan | What We Did Instead | Why |
+|------|---------------|---------------------|-----|
+| {date} | {planned} | {actual} | {reason} |
 
 ---
 
-## Current Status
+## 📋 Roadmap
 
-### State: 🟡 In Progress
-<!-- 🟢 Ready to ship | 🟡 In Progress | 🔴 Blocked | ⚪ Paused -->
+### Phase 1: {name} ← CURRENT
+- [x] {completed task}
+- [ ] {current task} ← YOU ARE HERE
+- [ ] {future task}
 
-### Last Session
-- **Date:** {YYYY-MM-DD}
-- **Worked on:** {what you did}
-- **Stopped because:** {why you stopped}
-- **Next:** {what to do next}
-
-### Current Branch
-- `{branch-name}`
-
-### Recent Changes
-- {latest thing you did}
-- {thing before that}
-- {thing before that}
+### Phase 2: {name}
+- [ ] {task}
 
 ---
 
-## Known Issues
+## 🏗️ Architecture Decisions
 
-### 🔴 Blocking
-- {issues that prevent shipping}
+> **Key decisions that affect how code should be written.**
 
-### 🟡 Non-blocking
-- {bugs or quirks that can wait}
-
-### 💡 Ideas / Later
-- {features or improvements for the future}
+### {Topic}
+{Decision and rationale}
 
 ---
 
-## External Services
+## 🛠️ Tech Stack
 
-| Service | Purpose | Dashboard |
-|---------|---------|-----------|
-| {e.g., Vercel} | {Hosting} | {URL} |
-| {e.g., Supabase} | {Database} | {URL} |
-| {e.g., Stripe} | {Payments} | {URL} |
-| {e.g., GitHub} | {Repo} | {URL} |
+| Layer | Technology |
+|-------|------------|
+| Framework | {e.g., Next.js 14} |
+| Styling | {e.g., Tailwind CSS} |
+| Database | {e.g., Supabase} |
+| Hosting | {e.g., Vercel} |
 
 ---
 
-## Commands Reference
+## ⚡ Quick Commands
 
 | Command | What it does |
 |---------|--------------|
 | `{command}` | {description} |
-| `{command}` | {description} |
-| `{command}` | {description} |
 
 ---
 
-## Notes
+## 🔗 External Services
 
-<!-- Anything else you need to remember -->
-- {e.g., Test user: test@example.com / password123}
-- {e.g., Deployment is auto on push to main}
-- {e.g., Rate limit: 100 req/min}
+| Service | Purpose | Dashboard |
+|---------|---------|-----------|
+| {name} | {purpose} | {url} |
+
+---
+
+## 📓 Session Log
+
+> **Most recent first.**
+
+### {YYYY-MM-DD}
+- {What you did}
+- **Decided:** {Any decisions made}
+- **Next:** {What to do next session}
+
+---
+
+## 📝 Notes
+
+- {Anything else to remember}
 
 ---
 
 <!--
 Generated by project-md
-https://github.com/{your-username}/project-md
+https://github.com/chilicheesedev/projectmd
 -->
