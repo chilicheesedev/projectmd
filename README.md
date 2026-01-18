@@ -295,6 +295,14 @@ I'm calling it **RepoBrain**. Star this repo to follow the journey.
 
 ---
 
+## Background
+
+Want to understand the problem deeper? I wrote about why AI coding assistants struggle with project context and where this is heading:
+
+**[AI Coding Tools Are Goldfish With a Soldering Iron](https://chilicheese.dev/posts/ai-coding-tools-are-goldfish-with-a-soldering-iron/)**
+
+---
+
 ## Contributing
 
 Found a bug? Have an idea? [Open an issue](https://github.com/chilicheesedev/projectmd/issues).
