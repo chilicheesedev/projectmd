@@ -29,94 +29,130 @@ Not what you *planned*. What *IS*.
 
 ---
 
-## Install
+## Getting Started
 
-```bash
-npx project-md init
-```
+PROJECT.md is just a markdown file with a specific structure. Choose how you want to create it:
 
-Or download the template directly:
+### Option 1: Copy the template
+
+Grab the [template from GitHub](https://github.com/chilicheesedev/projectmd/blob/main/templates/PROJECT.md) and copy it into your project root.
+
+### Option 2: Download via curl
 
 ```bash
 curl -sO https://raw.githubusercontent.com/chilicheesedev/projectmd/main/templates/PROJECT.md
 ```
 
----
+### Option 3: Use the CLI (Node.js)
 
-## Commands
-
-### Initialize
 ```bash
 npx project-md init
 ```
 
-### Add session log entry
+The CLI also provides helper commands for updating:
+
 ```bash
-npx project-md log "Implemented auth, decided to use cookies instead of localStorage"
+npx project-md log "Implemented auth flow"
+npx project-md status blocked
+npx project-md next "Fix login bug"
+npx project-md deviate  # interactive
+npx project-md sync     # updates git info
 ```
 
-### Update status
-```bash
-npx project-md status active       # 🟢 Active
-npx project-md status in-progress  # 🟡 In Progress
-npx project-md status blocked      # 🔴 Blocked
-npx project-md status paused       # ⚪ Paused
-```
+### Option 4: Create it manually
 
-### Update next step
-```bash
-npx project-md next "Implement password reset flow"
-```
-
-### Add a deviation
-```bash
-npx project-md deviate
-# Interactive: What was planned? What did you do? Why?
-```
-
-### Sync git info
-```bash
-npx project-md sync
-# Updates branch name and last session date
-```
+Create `PROJECT.md` in your repo root and use the structure below.
 
 ---
 
 ## Template Structure
 
 ```markdown
-## 📍 Current Reality
-> This section is the truth. If it conflicts with anything else, this wins.
+# Project: {name}
 
-| Status | 🟡 In Progress |
-| Active Branch | `feature/auth` |
-| Active Directory | `/src/app-v2/` |
-| Next Step | Implement refresh tokens |
+> {One-line description}
+
+---
+
+## 📍 Current Reality
+
+> **This section is the truth. If it conflicts with anything else, this wins.**
+
+| Field | Value |
+|-------|-------|
+| **Status** | 🟡 In Progress |
+| **Active Branch** | `main` |
+| **Active Directory** | `/src/` |
+| **Last Session** | 2024-01-14 |
+| **Next Step** | Implement refresh tokens |
+| **Blocked By** | Nothing |
+
+---
 
 ## 🚫 Boundaries
-### Do Not Modify
-- `/app-v1/**` – Deprecated, all work in /app-v2/
 
-### Do Not Suggest  
+> **AI must respect these. No exceptions.**
+
+### Do Not Modify
+- `/app-v1/**` – Deprecated, all work happens in /app-v2/
+- `/migrations/**` – Only modify via migration commands
+
+### Do Not Suggest
 - **Prisma** – We use Supabase client directly
+- **CSS Modules** – Tailwind only
+
+---
 
 ## ⚠️ Deviations from Original Plan
-| Date | Planned | Actual | Why |
-|------|---------|--------|-----|
-| 01-14 | localStorage | HTTP-only cookies | Security |
+
+> **We consciously changed direction. AI must respect these decisions.**
+
+| Date | Original Plan | What We Did Instead | Why |
+|------|---------------|---------------------|-----|
+| 01-14 | localStorage for tokens | HTTP-only cookies | Security best practice |
+| 01-10 | Prisma ORM | Supabase client | Less complexity |
+
+---
+
+## 📋 Roadmap
+
+### Phase 1: Auth ← CURRENT
+- [x] User model
+- [ ] Login flow ← YOU ARE HERE
+- [ ] Password reset
+
+### Phase 2: Core Features
+- [ ] Dashboard
+- [ ] Settings
+
+---
 
 ## 📓 Session Log
+
+> **Most recent first.**
+
 ### 2024-01-14
 - Implemented login page
-- Decided: cookies over localStorage
-- Next: refresh token rotation
+- Decided: HTTP-only cookies instead of localStorage
+- **Next:** Refresh token rotation
+
+### 2024-01-12
+- Set up Supabase, created schema
+- **Next:** Build login UI
+
+---
+
+## 📝 Notes
+
+- Test user: test@example.com / password123
+- Staging deploys on push to `develop`
 ```
 
 ---
 
 ## Using with AI Assistants
 
-### Cursor Setup
+### Cursor
 
 Add to `.cursorrules` or `.cursor/rules/project.mdc`:
 
@@ -137,7 +173,7 @@ Before making changes:
 After significant work, offer to update PROJECT.md.
 ```
 
-### Claude / ChatGPT
+### Claude / ChatGPT / Other
 
 Start your session with:
 
@@ -151,28 +187,23 @@ Please respect Boundaries and Deviations. Current Reality is the source of truth
 
 ---
 
-## Updating PROJECT.md with AI
+## Updating PROJECT.md
 
-The easiest way to keep PROJECT.md current is to let your AI assistant help.
+### With the CLI (if using Node.js)
 
-### At the start of a session
-
-```
-Read PROJECT.md and confirm you understand the current state, 
-boundaries, and deviations.
-```
-
-### During work (when you make a decision)
-
-```
-Add a deviation to PROJECT.md:
-- Planned: [what the PRD said]
-- Actual: [what we're doing instead]  
-- Why: [reason]
+```bash
+npx project-md log "Implemented feature X"
+npx project-md status in-progress
+npx project-md next "Build feature Y"
+npx project-md deviate
+npx project-md sync
 ```
 
-### At the end of a session
+### With your AI assistant
 
+Ask Cursor/Claude to update it for you:
+
+**At the end of a session:**
 ```
 Update PROJECT.md:
 1. Add a session log entry for today
@@ -181,63 +212,49 @@ Update PROJECT.md:
 4. Add any new deviations we made
 ```
 
-### Quick update prompts
-
-**Log what you did:**
+**Quick updates:**
 ```
-Add to PROJECT.md session log: "Implemented user authentication with Supabase, 
-added protected routes, fixed session persistence bug"
+Add to PROJECT.md session log: "Implemented auth, fixed session bug"
 ```
 
-**Change status:**
 ```
-Update PROJECT.md status to "blocked" – waiting for API credentials
-```
-
-**Add boundary:**
-```
-Add to PROJECT.md boundaries: Do not modify /legacy/** – scheduled for removal in v3
+Add deviation to PROJECT.md: Planned Redux, using Zustand instead – simpler for our needs
 ```
 
-**Record a decision:**
 ```
-Add deviation to PROJECT.md: We planned to use Redux but decided on Zustand 
-because it's simpler and we don't need time-travel debugging
+Update PROJECT.md status to blocked – waiting for API credentials
 ```
+
+### Manually
+
+It's just markdown. Open the file and edit it.
 
 ---
 
-## Why Not Just...
+## Why PROJECT.md?
 
-### ...use .cursorrules?
+### vs .cursorrules
 
-`.cursorrules` is for AI instructions. It doesn't capture project state – which branch is active, what deviated from plan, what happened last session.
+`.cursorrules` is for AI instructions. PROJECT.md captures project state – which branch is active, what deviated from plan, what happened last session. It's for humans *and* AI.
 
-PROJECT.md is for both humans and AI. After 2 months away, you open one file and know where you are.
+### vs README
 
-### ...use README?
+README explains what the project *is*. PROJECT.md captures where you *are* – current state, active scope, deviations, history.
 
-README explains what the project *is*. PROJECT.md captures where you *are* – current state, active scope, intentional deviations, session history.
+### vs Memory tools
 
-### ...use a memory tool?
-
-Memory tools (mcp-memory-service, OpenMemory) remember facts: "user prefers Tailwind."
-
-They don't capture project structure: "V2 is active, V1 is deprecated, we skipped Prisma intentionally."
-
-PROJECT.md is structural awareness, not semantic memory.
+Memory tools (mcp-memory-service, OpenMemory) remember facts: "user prefers Tailwind." PROJECT.md captures structure: "V2 is active, V1 is deprecated, we skipped Prisma intentionally."
 
 ---
 
 ## Best Practices
 
-### Update at natural breakpoints
-- End of coding session
-- After making a significant decision
-- When switching focus to a different part of the project
+**Update at natural breakpoints**
+- End of session
+- After a significant decision
+- When switching context
 
-### Keep Session Log brief
-Not a diary. Just enough to job your memory:
+**Keep Session Log brief**
 ```markdown
 ### 2024-01-14
 - Built login UI
@@ -245,29 +262,26 @@ Not a diary. Just enough to job your memory:
 - Next: refresh tokens
 ```
 
-### Be explicit about Boundaries
-Don't assume AI will figure it out. Tell it directly:
+**Be explicit about Boundaries**
 ```markdown
 ### Do Not Modify
 - `/v1/**` – Legacy, do not touch
-- `/migrations/**` – Only via migration commands
 ```
 
-### Deviations are not failures
-They're documented decisions. Write them proudly:
+**Deviations are decisions, not failures**
 ```markdown
-| Planned: Prisma | Actual: Supabase client | Why: Less complexity, built-in auth |
+| Planned: Prisma | Actual: Supabase | Why: Less complexity |
 ```
 
 ---
 
 ## Roadmap
 
-- [x] v0.1 – Template + `init` command
-- [x] v0.2 – `log`, `status`, `next`, `deviate`, `sync` commands
-- [ ] v0.3 – `open <service>` to launch dashboards
-- [ ] v0.4 – Git hooks for auto-sync on branch switch
-- [ ] Future – RepoBrain: fully automated project state tracking
+- [x] v0.1 – Template
+- [x] v0.2 – CLI commands (log, status, next, deviate, sync)
+- [ ] v0.3 – `open <service>` command
+- [ ] v0.4 – Git hooks for auto-sync
+- [ ] Future – **RepoBrain**: Fully automated project state tracking
 
 ---
 
@@ -277,15 +291,13 @@ PROJECT.md is manual. You maintain it (with AI help).
 
 The real fix is full automation: a background daemon that watches git and filesystem, auto-generates the single source of truth, and enforces boundaries mechanically.
 
-I'm calling it **RepoBrain**. If you're interested, star this repo and follow the journey.
+I'm calling it **RepoBrain**. Star this repo to follow the journey.
 
 ---
 
 ## Contributing
 
-Found a bug? Have an idea? Open an issue or PR.
-
----
+Found a bug? Have an idea? [Open an issue](https://github.com/chilicheesedev/projectmd/issues).
 
 ## License
 
@@ -295,4 +307,4 @@ MIT
 
 **Built for developers who use AI to code.**
 
-[GitHub](https://github.com/chilicheesedev/projectmd) · [Twitter](https://twitter.com/chilicheesedev)
+[GitHub](https://github.com/chilicheesedev/projectmd) · [X](https://X.com/chilicheesedev)
